@@ -1,0 +1,28 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+
+    <f:entry title="${%fileName}" field="fileName">
+        <f:textbox />
+    </f:entry>
+
+    <f:entry title="${%repoServerUrl}" field="repoServerUrl">
+        <f:textbox />
+    </f:entry>
+
+    <f:entry title="Repos">
+        <f:repeatable field="allRepos" minimum="0">
+            <table width="100%">
+                <f:entry title="${%repoNames}" field="repoName">
+                    <f:textbox />
+                </f:entry>
+                <f:entry title="${%branchNames}" field="branchName">
+                    <f:textbox />
+                </f:entry>
+            </table>
+
+            <div align="right">
+                <f:repeatableDeleteButton/>
+            </div>
+        </f:repeatable>
+    </f:entry>
+</j:jelly>
